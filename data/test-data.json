@@ -1,0 +1,38 @@
+{
+    "dev" : {
+        "valid-user" : {
+            "username"      : "standard_user@gmail.com",
+            "password"      : "secret_sauce",
+            "email"         : "standard_user@gmail.com",
+            "country"       : "Indonesia",
+            "first_name"    : "Standard",
+            "last_name"     : "User",
+            "company"       : "Standard User Company",
+            "address"       : "Jl. Standard User No. 123",
+            "apaertment"    : "Standard User Apartment",
+            "city"          : "Standard User City",
+            "province"      : "Jakarta",
+            "postal_code"    : "10110",
+            "phone_number"   : "081234567890",
+            "card_number"    : "4111 1111 1111 1111",
+            "expiry_date"    : "12/25",
+            "security_code"   : "123"
+        },
+        "invalid-user" : {
+            "username"      : "invalid_user@gmail.com",
+            "password"      : "invalid_password"
+    
+            }
+        },
+    "prod" : {
+        "valid-user" : {
+            "username"      : "standard_user_prod@gmail.com",
+            "password"      : "secret_sauce_prod"
+        },
+        "invalid-user" : {
+            "username"      : "invalid_user_prod@gmail.com",
+            "password"      : "invalid_password_prod"
+            }
+
+        }
+}

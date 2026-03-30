@@ -1,0 +1,121 @@
+Test Description;Test Steps
+Verify homepage loads successfully;"1. Navigate to https://sauce-demo.myshopify.com/
+2. Wait for page to load
+3. Verify page displayed"
+Verify site logo 'simple.' is displayed;"1. Check top left area
+2. Verify logo 'simple.' is visible"
+Verify sidebar menu contains all items;"1. Check left sidebar
+2. Verify menu items: Home, Catalog, Blog, About Us, Wish list, Refer a friend"
+Verify top navigation bar elements;"1. Check top bar
+2. Verify: Search, About Us, Log In, Sign up, My Cart, Check Out"
+Verify search field and button exist;"1. Check top bar
+2. Locate search input field
+3. Locate search submit button"
+Verify social media links in sidebar;"1. Scroll sidebar
+2. Check for icons: Facebook, Twitter, Instagram, Pinterest, RSS"
+Verify products displayed in grid format;"1. Scroll to product section
+2. Verify products shown in grid layout
+3. Check each product has image, title, price"
+Verify footer contains required information;"1. Scroll to bottom
+2. Check for footer links: Search, About Us
+3. Check for payment icons"
+Verify catalog page displays all products;"1. Click 'Catalog' in sidebar
+2. Wait for page load
+3. Verify product grid"
+Verify breadcrumb navigation on catalog page;"1. Check top of page
+2. Verify breadcrumb: Home > Products"
+Verify all product images load correctly;"1. Check each product card
+2. Verify images are not broken
+3. Check image clarity"
+Verify product titles are visible;"1. Check each product card
+2. Verify product names displayed clearly"
+Verify prices are shown in correct format;"1. Check product cards
+2. Verify price format (currency symbol + amount)"
+Verify 'SOLD OUT' badge on unavailable products;"1. Find Brown Shades product
+2. Check for 'SOLD OUT' badge"
+Verify product detail page loads when product clicked;"1. Click on any product
+2. Wait for page load
+3. Verify PDP displays"
+Verify product image on detail page;"1. Check product image section
+2. Verify image is large and clear"
+Verify product title on detail page;"1. Check product title
+2. Verify it matches selected product"
+Verify price display on PDP;"1. Locate price
+2. Verify format and amount"
+Verify product description exists;"1. Scroll to description section
+2. Verify description text is present"
+Verify size selector dropdown exists;"1. Locate size selector
+2. Verify it's a dropdown menu
+3. Check for size options"
+Verify color selector dropdown exists;"1. Locate color selector
+2. Verify dropdown menu
+3. Check color options"
+Verify 'Add to Cart' button is visible;"1. Locate Add to Cart button
+2. Verify button text and visibility"
+Verify breadcrumb navigation on PDP;"1. Check top of page
+2. Verify breadcrumb trail"
+Verify shopping cart page structure;"1. Click 'My Cart'
+2. Verify cart page displays
+3. Check layout elements"
+Verify product details in cart;"1. Check cart items
+2. Verify: image, title, variant, price, quantity"
+Verify quantity field is editable;"1. Locate quantity input field
+2. Verify it's a text input
+3. Check if editable"
+Verify remove (X) button exists for each item;"1. Check each cart line item
+2. Verify X/remove icon is present"
+Verify UPDATE button is present;"1. Scroll to cart buttons
+2. Locate UPDATE button
+3. Verify visibility"
+Verify CHECK OUT button exists;"1. Locate checkout button
+2. Verify text and styling"
+Verify order notes textarea exists;"1. Locate 'Add a note to your order' section
+2. Verify textarea present"
+Verify subtotal is calculated and shown;"1. Locate subtotal section
+2. Verify amount displayed"
+Verify checkout page displays;"1. Click CHECK OUT button
+2. Wait for page load
+3. Verify checkout page"
+Verify contact information field exists;"1. Locate contact section
+2. Verify Email or Phone field"
+Verify all shipping address fields present;"1. Check shipping section
+2. Verify fields: First Name, Last Name, Address, City, Country, State, ZIP"
+Verify order summary sidebar;"1. Check right sidebar
+2. Verify product list, subtotal, shipping, tax"
+Verify continue/submit button exists;"1. Scroll to bottom
+2. Locate continue to shipping button"
+Verify login page has required fields;"1. Click 'Log In'
+2. Verify Email field
+3. Verify Password field
+4. Verify Sign In button"
+Verify 'Forgot your password?' link exists;"1. Check for forgot password link
+2. Verify clickability"
+Verify guest checkout option on login page;"1. Check for guest option
+2. Verify 'Continue as Guest' text/button"
+Verify registration page has all required fields;"1. Click 'Sign up'
+2. Verify fields: First Name, Last Name, Email, Password
+3. Verify Create button"
+Verify cart item count updates in real-time;"1. Check 'My Cart' text in header
+2. Verify it shows '(X)' where X is item count
+3. Add item to cart
+4. Verify count increases"
+Verify copyright text exists in footer;"1. Scroll to footer
+2. Check for copyright text
+3. Verify year is correct"
+Verify 'Shopping Cart by Shopify' link in footer;"1. Scroll to footer
+2. Look for Shopify branding link
+3. Verify link text"
+Verify 'Continue Shopping' link exists on cart page;"1. Navigate to cart
+2. Look for 'Continue Shopping' link
+3. Verify visibility"
+Verify line item total display (Price × Qty);"1. Add product to cart
+2. Check line item shows: Price × Quantity = Line Total"
+Verify message displayed when cart is empty;"1. Ensure cart has no items
+2. Navigate to cart page
+3. Check for empty cart message"
+Verify RSS icon exists and is clickable;"1. Locate RSS icon in sidebar
+2. Verify icon is visible
+3. Check it's a clickable link"
+Verify blog page displays correctly;"1. Click 'Blog' in sidebar
+2. Verify page loads
+3. Check for blog posts list"
