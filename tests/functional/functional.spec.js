@@ -4,7 +4,7 @@ import testData from "../../data/test-data.json";
 const validUser = testData.dev["valid-user"];
 const invalidUser = testData.dev["invalid-user"];
 
-test.describe("Functional Scenario", () => {
+test.describe("Functional Scenarios", () => {
 	test.describe("Navigation Flows", () => {
 		test("Verify clicking logo returns to homepage", async ({ page, SideBar, CatalogPage, HomePage }) => {
 			await SideBar.catalogMenu.click();

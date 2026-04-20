@@ -12,6 +12,7 @@ import { SignUpPage } from "../pages/SignUpPage";
 import { Footer } from "../pages/components/Footer";
 import { NavigationBar } from "../pages/components/NavigationBar";
 import { SideBar } from "../pages/components/SideBar";
+import { ProductDetailPage } from "../pages/ProductDetailPage";
 
 
 export const test = base.extend({
@@ -71,7 +72,10 @@ export const test = base.extend({
 
   SideBar: async({ page }, use) => {
     await use(new SideBar(page));
+  },
+  ProductDetailPage: async({ page }, use) => {
+    await use(new ProductDetailPage(page));
   }
 });
 
-export { expect };
+export { expect , devices};

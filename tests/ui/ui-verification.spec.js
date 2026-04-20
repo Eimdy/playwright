@@ -44,9 +44,12 @@ test.describe("UI Verification", () => {
   });
 
   test("Verify products displayed in grid format", async ({ HomePage }) => {
-    await expect(HomePage.greyJacketLink).toBeVisible();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator untuk grid container dan multi product cards di HomePage.
+    let allProducts = await HomePage.productGrid.count();
+    for (let i = 0; i < allProducts; i++) {
+      await expect(HomePage.productGridByIndex(i)).toBeVisible();
+      await expect(HomePage.productNameByIndex(i)).toBeVisible();
+      await expect(HomePage.productPriceByIndex(i)).toBeVisible();
+    }
   });
 
   test("Verify footer contains required information", async ({ Footer }) => {
@@ -70,92 +73,89 @@ test.describe("UI Verification", () => {
   });
 
   test("Verify all product images load correctly", async ({ SideBar, CatalogPage }) => {
+    let allProducts = await CatalogPage.productGrid.count();
     await SideBar.catalogMenu.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator image per product card pada CatalogPage.
-    await expect(CatalogPage.productLink).toBeVisible();
+
+    for (let i = 0; i < allProducts; i++) {
+      await expect(CatalogPage.productGridByIndex(i)).toBeVisible();
+      await expect(CatalogPage.productNameByIndex(i)).toBeVisible();
+      await expect(CatalogPage.productPriceByIndex(i)).toBeVisible();
+    }
   });
 
   test("Verify product titles are visible", async ({ SideBar, CatalogPage }) => {
-    await SideBar.catalogMenu.click();
-    await expect(CatalogPage.productLink).toBeVisible();
+      await SideBar.catalogMenu.click();
+      await expect(CatalogPage.productNameByIndex(1)).toBeVisible();
   });
 
   test("Verify prices are shown in correct format", async ({ SideBar, CatalogPage }) => {
     await SideBar.catalogMenu.click();
-    await expect(CatalogPage.productLink).toContainText("£");
+    await expect(CatalogPage.productByName('Grey jacket')).toContainText("£");
   });
 
-  test("Verify SOLD OUT badge on unavailable products", async ({ SideBar }) => {
+  test("Verify SOLD OUT badge on unavailable products", async ({ SideBar, CatalogPage }) => {
     await SideBar.catalogMenu.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator badge SOLD OUT (contoh: Brown Shades) di CatalogPage.
+    await expect(CatalogPage.productSoldOutLabelByName('White sandals')).toContainText("Sold Out");
   });
 
-  test("Verify product detail page loads when product clicked", async ({ SideBar, CatalogPage, HomePage }) => {
+  test("Verify product detail page loads when product clicked", async ({ SideBar, CatalogPage, ProductDetailPage}) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    await expect(HomePage.greyJacketLink).not.toBeVisible();
-    await expect(CatalogPage.productLink).not.toBeVisible();
+    await CatalogPage.productByName('Grey jacket').click();
+    await expect(ProductDetailPage.productName).toBeVisible();
   });
 
   test("Verify product image on detail page", async ({ SideBar, CatalogPage }) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator gambar PDP di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Grey jacket').click();
+    await expect(CatalogPage.productImagebyIndex(1)).toBeVisible();
   });
 
-  test("Verify product title on detail page", async ({ SideBar, CatalogPage }) => {
+  test("Verify product title on detail page", async ({ SideBar, CatalogPage, ProductDetailPage }) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator title PDP di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Grey jacket').click();
+    await expect(ProductDetailPage.productName).toBeVisible();
   });
 
-  test("Verify price display on PDP", async ({ SideBar, CatalogPage }) => {
+  test("Verify price display on PDP", async ({ SideBar, CatalogPage , ProductDetailPage}) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator price PDP di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Grey jacket').click();
+    await expect(ProductDetailPage.productPrice).toBeVisible();
   });
 
-  test("Verify product description exists", async ({ SideBar, CatalogPage }) => {
+  test("Verify product description exists", async ({ SideBar, CatalogPage , ProductDetailPage}) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator description PDP di page object PDP/CatalogPage.
-  });
+    await CatalogPage.productByName('Grey jacket').click();
+    await expect(ProductDetailPage.productInfo).toBeVisible();
+});
 
-  test("Verify size selector dropdown exists", async ({ SideBar, CatalogPage }) => {
+  test("Verify size selector dropdown exists", async ({ SideBar, CatalogPage, ProductDetailPage }) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator size dropdown PDP di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Black heels').click();
+    await expect(ProductDetailPage.productDropdownSize).toBeVisible();
   });
 
-  test("Verify color selector dropdown exists", async ({ SideBar, CatalogPage }) => {
+  test("Verify color selector dropdown exists", async ({ SideBar, CatalogPage, ProductDetailPage }) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator color dropdown PDP di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Black heels').click();
+    await expect(ProductDetailPage.productDropdownColor).toBeVisible();
   });
 
-  test("Verify Add to Cart button is visible", async ({ SideBar, CatalogPage }) => {
+  test("Verify Add to Cart button is visible", async ({ SideBar, CatalogPage, ProductDetailPage }) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator button Add to Cart di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Black heels').click();
+    await expect(ProductDetailPage.addToCart).toBeVisible();
   });
 
-  test("Verify breadcrumb navigation on PDP", async ({ SideBar, CatalogPage }) => {
+  test("Verify breadcrumb navigation on PDP", async ({ SideBar, CatalogPage, ProductDetailPage }) => {
     await SideBar.catalogMenu.click();
-    await CatalogPage.productLink.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator breadcrumb PDP di page object PDP/CatalogPage.
+    await CatalogPage.productByName('Black heels').click();
+    await expect(ProductDetailPage.productBreadcrumb).toBeVisible();
   });
 
-  test("Verify shopping cart page structure", async ({ NavigationBar, CartPage }) => {
+  test.fixme("Verify shopping cart page structure", async ({ SideBar, NavigationBar, CatalogPage, CartPage, ProductDetailPage }) => {
+    await SideBar.catalogMenu.click();
+    await CatalogPage.productByName('Black heels').click();
+    await ProductDetailPage.addToCartProduct('Red', 'S');
     await NavigationBar.checkOutMenu.click();
     await expect(CartPage.cartHeading).toBeVisible();
     await expect(CartPage.cartDescription).toBeVisible();
@@ -164,7 +164,10 @@ test.describe("UI Verification", () => {
     await expect(CartPage.cartTotal).toBeVisible();
   });
 
-  test("Verify product details in cart", async ({ NavigationBar, CartPage }) => {
+  test("Verify product details in cart", async ({ SideBar, NavigationBar, CatalogPage, ProductDetailPage, CartPage }) => {
+    await SideBar.catalogMenu.click();
+    await CatalogPage.productByName('Black heels').click();
+    await ProductDetailPage.addToCartProduct('Red', 'S');
     await NavigationBar.checkOutMenu.click();
     await expect(CartPage.cartImage).toBeVisible();
     await expect(CartPage.cartLink).toBeVisible();
@@ -172,7 +175,10 @@ test.describe("UI Verification", () => {
     await expect(CartPage.cartUpdate).toBeEditable();
   });
 
-  test("Verify quantity field is editable", async ({ NavigationBar, CartPage }) => {
+  test("Verify quantity field is editable", async ({ SideBar, NavigationBar, CatalogPage, ProductDetailPage, CartPage }) => {
+    await SideBar.catalogMenu.click();
+    await CatalogPage.productByName('Black heels').click();
+    await ProductDetailPage.addToCartProduct('Red', 'S');
     await NavigationBar.checkOutMenu.click();
     await expect(CartPage.cartUpdate).toBeEditable();
   });

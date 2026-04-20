@@ -4,7 +4,7 @@ import testData from "../../data/test-data.json";
 const validUser = testData.dev["valid-user"];
 const invalidUser = testData.dev["invalid-user"];
 
-test.describe("E2E Scenario CSV", () => {
+test.describe("E2E Scenarios", () => {
 	test("Complete flow from homepage to checkout", async ({ SideBar, CatalogPage, NavigationBar, CartPage, CheckoutPage }) => {
 		await SideBar.catalogMenu.click();
 		await expect(CatalogPage.productHeading).toBeVisible();
@@ -136,7 +136,7 @@ test.describe("E2E Scenario CSV", () => {
 	});
 
 	test.skip("Direct add from homepage if possible", async ({ HomePage, NavigationBar, CartPage }) => {
-		await HomePage.greyJacketLink.click();
+		await HomePage.productGridByIndex(1).click();
 		// locator belum di tambahkan
 		// TODO: locator Add to Cart dari homepage/PDP belum tersedia.
 		await NavigationBar.checkOutMenu.click();
