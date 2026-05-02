@@ -21,7 +21,7 @@ export const test = base.extend({
     // This code runs before every test.
     await page.goto('/');
     await use();
-  }, { auto: true }], 
+  }, { auto: true }],
 
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
@@ -55,27 +55,27 @@ export const test = base.extend({
     await use(new HomePage(page));
   },
 
-  SearchPage: async({ page }, use) => {
+  SearchPage: async ({ page }, use) => {
     await use(new SearchPage(page));
   },
 
-  SignUpPage: async({ page }, use) => {
+  SignUpPage: async ({ page }, use) => {
     await use(new SignUpPage(page));
   },
 
-  Footer: async({ page }, use) => {
+  Footer: async ({ page }, use) => {
     await use(new Footer(page));
   },
-  NavigationBar: async({ page }, use) => {
+  NavigationBar: async ({ page }, use) => {
     await use(new NavigationBar(page));
   },
 
-  SideBar: async({ page }, use) => {
+  SideBar: async ({ page }, use) => {
     await use(new SideBar(page));
   },
-  ProductDetailPage: async({ page }, use) => {
+  ProductDetailPage: async ({ page }, use) => {
     await use(new ProductDetailPage(page));
   }
 });
 
-export { expect , devices};
+export { expect };

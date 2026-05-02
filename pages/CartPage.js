@@ -1,8 +1,8 @@
 export class CartPage {
     constructor(page) {
-        this.page = page; 
-        
-        this.cartBreadcrumb = page.getByRole('link', { name: 'Cart'})
+        this.page = page;
+
+        this.cartBreadcrumb = page.getByRole('link', { name: 'Cart' })
         this.cartHeading = page.getByRole('heading', { name: 'My Cart' })
         this.cartDescription = page.locator("div[class='six columns alpha description'] p")
         this.cartPrice = page.getByText('Price')
@@ -19,5 +19,10 @@ export class CartPage {
         this.cartNote = page.getByRole('textbox', { name: 'Add a note to your order...' })
         this.cartUpdateButton = page.getByRole('button', { name: 'Update' })
         this.cartCheckOutButton = page.getByRole('button', { name: 'Check Out' })
+    }
+
+    async updateCartQuantity(qty) {
+        await this.cartUpdate.fill(qty);
+        await this.cartUpdateButton.click();
     }
 }

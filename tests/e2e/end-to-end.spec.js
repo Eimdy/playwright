@@ -5,12 +5,11 @@ const validUser = testData.dev["valid-user"];
 const invalidUser = testData.dev["invalid-user"];
 
 test.describe("E2E Scenarios", () => {
-	test("Complete flow from homepage to checkout", async ({ SideBar, CatalogPage, NavigationBar, CartPage, CheckoutPage }) => {
+	test("Complete flow from homepage to checkout", async ({ SideBar, CatalogPage, NavigationBar, CartPage, CheckoutPage, ProductDetailPage }) => {
 		await SideBar.catalogMenu.click();
 		await expect(CatalogPage.productHeading).toBeVisible();
 		await CatalogPage.productLink.click();
-		// locator belum di tambahkan
-		// TODO: tambahkan locator size/color dan button Add to Cart pada PDP.
+		await ProductDetailPage.addToCartProduct('Red', 'S');
 		await NavigationBar.checkOutMenu.click();
 		await expect(CartPage.cartHeading).toBeVisible();
 		await CartPage.cartCheckOutButton.click();
@@ -127,18 +126,16 @@ test.describe("E2E Scenarios", () => {
 		// TODO: locator sukses login belum tersedia.
 	});
 
-	test.skip("Navigate using breadcrumbs", async ({ SideBar, CatalogPage }) => {
+	test.skip("Navigate using breadcrumbs", async ({ SideBar, CatalogPage, ProductDetailPage }) => {
 		await SideBar.catalogMenu.click();
 		await expect(CatalogPage.productHeading).toBeVisible();
 		await CatalogPage.productLink.click();
-		// locator belum di tambahkan
-		// TODO: locator breadcrumb PDP (Products) belum tersedia.
+		await expect(ProductDetailPage.productBreadcrumb).toBeVisible();
 	});
 
-	test.skip("Direct add from homepage if possible", async ({ HomePage, NavigationBar, CartPage }) => {
+	test.skip("Direct add from homepage if possible", async ({ HomePage, NavigationBar, CartPage, ProductDetailPage }) => {
 		await HomePage.productGridByIndex(1).click();
-		// locator belum di tambahkan
-		// TODO: locator Add to Cart dari homepage/PDP belum tersedia.
+		await ProductDetailPage.addToCartProduct('Red', 'S');
 		await NavigationBar.checkOutMenu.click();
 		await expect(CartPage.cartHeading).toBeVisible();
 	});
@@ -269,8 +266,7 @@ test.describe("E2E Scenarios", () => {
 		await CartPage.cartCheckOutButton.click();
 		await expect(CheckoutPage.headingCheckout).toBeVisible();
 		await CheckoutPage.discountCodeTextbox.fill("PROMO10");
-		// locator belum di tambahkan
-		// TODO: locator tombol apply/hasil diskon belum tersedia sebagai locator terpisah.
+		await expect(CheckoutPage.discountCodeApplyText).toBeVisible();
 	});
 
 	test.skip("Verify cart behavior after logout", async ({ NavigationBar, loginPage, CartPage }) => {
@@ -359,26 +355,25 @@ test.describe("E2E Scenarios", () => {
 		await SideBar.aboutUsMenu.click();
 		await SideBar.catalogMenu.click();
 		await expect(CatalogPage.productHeading).toBeVisible();
-		// locator belum di tambahkan
-		// TODO: locator numeric cart count belum tersedia.
+		await expect(NavigationBar.cartCounter).toBeVisible();
 	});
 
-	test.skip("Select specific variant and verify in cart", async ({ SideBar, CatalogPage, NavigationBar, CartPage }) => {
+	test.skip("Select specific variant and verify in cart", async ({ SideBar, CatalogPage, NavigationBar, CartPage, ProductDetailPage }) => {
 		await SideBar.catalogMenu.click();
 		await expect(CatalogPage.productHeading).toBeVisible();
 		await CatalogPage.productLink.click();
+		await ProductDetailPage.addToCartProduct('Red', 'S');
 		// locator belum di tambahkan
-		// TODO: locator size/color selection + variant text in cart belum tersedia.
+		// TODO: locator variant text in cart belum tersedia untuk verifikasi variant yang dipilih.
 		await NavigationBar.checkOutMenu.click();
 		await expect(CartPage.cartHeading).toBeVisible();
 	});
 
-	test.skip("Add item continue shopping add more", async ({ SideBar, CatalogPage, NavigationBar, CartPage }) => {
+	test.skip("Add item continue shopping add more", async ({ SideBar, CatalogPage, NavigationBar, CartPage, ProductDetailPage }) => {
 		await SideBar.catalogMenu.click();
 		await expect(CatalogPage.productHeading).toBeVisible();
 		await CatalogPage.productLink.click();
-		// locator belum di tambahkan
-		// TODO: locator Add to Cart multi item belum tersedia.
+		await ProductDetailPage.addToCartProduct('Red', 'S');
 		await NavigationBar.checkOutMenu.click();
 		await expect(CartPage.cartHeading).toBeVisible();
 	});

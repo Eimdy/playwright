@@ -39,7 +39,7 @@ export default defineConfig({
     headless: false,
     viewport: null,
     launchOptions: {
-      args: ['--start-maximized'],
+      args: ['--start-maximized', '--window-size=1080,720'],
     },
   },
 

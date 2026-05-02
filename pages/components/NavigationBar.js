@@ -9,7 +9,7 @@ export class NavigationBar {
         this.logInMenu = page.getByRole('link', { name: 'Log In' });
         this.signUpMenu = page.getByRole('link', { name: 'Sign up' });
         this.myCartMenu = page.locator('.cart');
+        this.cartCounter = page.locator('#cart-target-desktop > span')
         this.checkOutMenu = page.getByRole('link', { name: 'Check Out' });
-        
     }
 }

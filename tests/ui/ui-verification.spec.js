@@ -302,14 +302,12 @@ test.describe("UI Verification", () => {
     await expect(CartPage.cartPrice).toBeVisible();
     await expect(CartPage.cartQty).toBeVisible();
     await expect(CartPage.cartTotal).toBeVisible();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator line total formula (Price x Qty = Total) pada CartPage.
+    await expect(CartPage.cartPriceSpan.first()).toBeVisible();
   });
 
   test("Verify message displayed when cart is empty", async ({ NavigationBar, CartPage }) => {
     await NavigationBar.checkOutMenu.click();
-    // locator belum di tambahkan
-    // TODO: tambahkan locator empty cart message pada CartPage.
+    await expect(CartPage.cartText).toBeVisible();
     await expect(CartPage.cartHeading).toBeVisible();
   });
 

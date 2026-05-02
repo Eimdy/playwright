@@ -37,5 +37,6 @@ export class CheckoutPage {
         this.totalRowHeader = page.getByRole('rowheader', { name: 'Total', exact: true });
         this.totalCell = page.getByRole('cell', { name: 'GBP £' }).getByRole('strong');
         this.gbpText = page.getByText('GBP');
+        this.paymentButton = page.getByRole('button', { name: 'Pay now' });
     }
 }
