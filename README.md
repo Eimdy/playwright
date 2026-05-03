@@ -114,6 +114,9 @@ This project includes a `Jenkinsfile` utilizing the **Declarative Pipeline** syn
 4. **Artifacts:** Archives build artifacts (Playwright HTML Report & `results.json`).
 5. **Post-Build:** Triggers notifications and status updates via Slack.
 
+<img width="1919" height="620" alt="jenkins1" src="https://github.com/user-attachments/assets/4f4f560c-b17b-4d09-8d3f-f337568873f0" />
+
+
 ---
 
 ## Slack Integration
@@ -127,6 +130,9 @@ Upon pipeline completion (whether successful or failed), Jenkins reads the `resu
 - Execution Duration
 - A direct hyperlink to the Jenkins-hosted full HTML Report
 
+<img width="851" height="292" alt="slack1" src="https://github.com/user-attachments/assets/2a4c5de9-58d5-4c20-a678-9e0b004a810f" />
+
+
 ### Command
 
 You can remotely trigger Jenkins builds directly from Slack without accessing the Jenkins dashboard using custom Slash Commands.
@@ -136,4 +142,7 @@ You can remotely trigger Jenkins builds directly from Slack without accessing th
 | `/run-smoke`     | Triggers a build executing only tests tagged `@SMOKE` |
 | `/run-regression`| Triggers a build executing tests tagged `@REGRESSION` |
 | `/run-all`       | Triggers a build executing the entire test suite      |
+
+<img width="473" height="209" alt="slack2" src="https://github.com/user-attachments/assets/924b6b5e-65c9-431d-8849-e7b7308f8cc2" />
+
 
