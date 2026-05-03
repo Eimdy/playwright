@@ -1,38 +1,42 @@
 {
-    "dev" : {
-        "valid-user" : {
-            "username"      : "standard_user@gmail.com",
-            "password"      : "secret_sauce",
-            "email"         : "standard_user@gmail.com",
-            "country"       : "Indonesia",
-            "first_name"    : "Standard",
-            "last_name"     : "User",
-            "company"       : "Standard User Company",
-            "address"       : "Jl. Standard User No. 123",
-            "apaertment"    : "Standard User Apartment",
-            "city"          : "Standard User City",
-            "province"      : "Jakarta",
-            "postal_code"    : "10110",
-            "phone_number"   : "081234567890",
-            "card_number"    : "4111 1111 1111 1111",
-            "expiry_date"    : "12/25",
-            "security_code"   : "123"
+    "dev": {
+        "valid-user": {
+            "username": "standard_user@gmail.com",
+            "password": "secret_sauce",
+            "email": "standard_user@gmail.com",
+            "country": "Indonesia",
+            "first_name": "Standard",
+            "last_name": "User",
+            "company": "Standard User Company",
+            "address": "Jl. Standard User No. 123",
+            "apaertment": "Standard User Apartment",
+            "city": "Standard User City",
+            "province": "Jakarta",
+            "postal_code": "10110",
+            "phone_number": "081234567890",
+            "card_number": "4111 1111 1111 1111",
+            "expiry_date": "12/25",
+            "security_code": "123"
         },
-        "invalid-user" : {
-            "username"      : "invalid_user@gmail.com",
-            "password"      : "invalid_password"
-    
-            }
+        "invalid-user": {
+            "username": "invalid_user@gmail.com",
+            "password": "invalid_password"
         },
-    "prod" : {
-        "valid-user" : {
-            "username"      : "standard_user_prod@gmail.com",
-            "password"      : "secret_sauce_prod"
+        "valid-product": {
+            "product_name": "Grey jacket",
+            "product_price": "£150.00",
+            "product_description": "Warm and waterproof with sealed seams."
         },
-        "invalid-user" : {
-            "username"      : "invalid_user_prod@gmail.com",
-            "password"      : "invalid_password_prod"
-            }
-
+        "invalid-product": {
+            "product_name": "White sandals",
+            "product_price": "£150.00",
+            "product_description": "Warm and waterproof with sealed seams."
+        },
+        "sold-out-product": {
+            "product_name": "White sandals",
+            "product_price": "£150.00",
+            "product_description": "Warm and waterproof with sealed seams."
         }
+    },
+    "prod": {}
 }
