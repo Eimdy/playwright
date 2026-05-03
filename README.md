@@ -1,8 +1,8 @@
-# 🚀 Playwright E2E Automation - Sauce Demo
+# Playwright E2E Automation - Sauce Demo
 
 An End-to-End (E2E) test automation project for the [Sauce Demo Shopify](https://sauce-demo.myshopify.com/) website. This project is built using **Playwright** and implements an **Object-Oriented Programming (OOP)** architecture alongside the **Page Object Model (POM)** design pattern to ensure scalable, maintainable, and robust test scripts.
 
-## ✨ Key Features
+## Key Features
 
 - **Page Object Model (POM) & OOP:** Separation of page elements and interactions from test scripts using class-based objects.
 - **Custom Fixtures:** Clean and encapsulated setup/teardown mechanisms using native Playwright fixtures.
@@ -11,12 +11,12 @@ An End-to-End (E2E) test automation project for the [Sauce Demo Shopify](https:/
 - **Custom CLI & Tagging:** Run specific test suites dynamically via custom CLI flags/grep.
 - **Jenkins CI/CD Integration:** Automated test execution pipeline with parameterized builds.
 - **Slack Integration:**
-  - 📊 Detailed test report notifications (Passed, Failed, Skipped, Duration, and HTML Report Link).
-  - 🤖 **Interactive Slash Commands:** Trigger Jenkins pipelines remotely directly from your Slack workspace.
+  - Detailed test report notifications (Passed, Failed, Skipped, Duration, and HTML Report Link).
+  - **Interactive Slash Commands:** Trigger Jenkins pipelines remotely directly from Slack workspace.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ├── pages/                  # Page Object classes (OOP implementation)
@@ -30,11 +30,11 @@ An End-to-End (E2E) test automation project for the [Sauce Demo Shopify](https:/
 └── README.md               # Project documentation
 ```
 
-## 🛠️ Prerequisites & Local Setup
+## Prerequisites & Local Setup
 
 Ensure you have the following installed on your local machine:
 
-- **Node.js** (Version 18 or newer is recommended)
+- **Node.js** (Version 24 or newer is recommended)
 - **Git**
 
 ### Installation Steps
@@ -60,7 +60,7 @@ npx playwright install chromium
 
 ---
 
-## 💻 Test Execution (Local CLI)
+## Test Execution (Local CLI)
 
 This project utilizes Playwright's native CLI along with custom configurations. You can run the following commands in your terminal:
 
@@ -96,7 +96,7 @@ npx playwright show-report
 
 ---
 
-## ⚙️ Jenkins CI/CD Integration
+## Jenkins CI/CD Integration
 
 This project includes a `Jenkinsfile` utilizing the **Declarative Pipeline** syntax. It supports automated and on-demand runs via **Build with Parameters**:
 
@@ -116,9 +116,9 @@ This project includes a `Jenkinsfile` utilizing the **Declarative Pipeline** syn
 
 ---
 
-## 💬 Slack Integration & Slash Commands
+## Slack Integration
 
-### 📊 Automated Notifications
+### Automated Notifications
 
 Upon pipeline completion (whether successful or failed), Jenkins reads the `results.json` file and pushes a visually formatted summary to the designated Slack channel. The notification includes:
 
@@ -127,7 +127,7 @@ Upon pipeline completion (whether successful or failed), Jenkins reads the `resu
 - Execution Duration
 - A direct hyperlink to the Jenkins-hosted full HTML Report
 
-### 🤖 Interactive Slash Commands
+### Command
 
 You can remotely trigger Jenkins builds directly from Slack without accessing the Jenkins dashboard using custom Slash Commands.
 
@@ -137,4 +137,3 @@ You can remotely trigger Jenkins builds directly from Slack without accessing th
 | `/run-regression`| Triggers a build executing tests tagged `@REGRESSION` |
 | `/run-all`       | Triggers a build executing the entire test suite      |
 
-> **Note:** These commands are securely routed to Jenkins using the **Build Authorization Token Root** plugin endpoint.
