@@ -2,7 +2,6 @@ export class SideBar {
     constructor(page) {
         this.page = page;
 
-
         this.homeMenu = page.getByRole('link', { name: 'Home' });
         this.catalogMenu = page.getByRole('link', { name: 'Catalog' });
         this.blogMenu = page.getByRole('link', { name: 'Blog' });
